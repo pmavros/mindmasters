@@ -1,6 +1,6 @@
 Walker w;
 ArrayList<Door> doors;
-Floor floor =  new Floor();
+Floor floor;
 
 float powerA, powerB;
 float powerAMax, powerBMax;
@@ -17,15 +17,17 @@ void setup()
   stroke(255);
   fill(0);
   addDoors();
-  
+  floor = new Floor();
 }
 
 void addDoors()
 {
   doors = new ArrayList<Door>();
-  doors.add(new Door(new PVector(width/2, height)));
   doors.add(new Door(new PVector(width/4, height)));
-  doors.get(1).teamA = false;
+  doors.add(new Door(new PVector(width/2, height)));
+  doors.add(new Door(new PVector(3*width/4, height)));
+  doors.get(1).teamA=false;
+  
 }
 
 void draw()
