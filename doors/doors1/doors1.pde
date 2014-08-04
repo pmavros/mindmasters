@@ -41,6 +41,18 @@ void draw()
     }
     
     floor.display();
+    win();
+}
+
+void win()
+{
+    if(w.p.x>width)
+    {
+        colorMode(HSB);
+        fill(frameCount%255, 255, 255);
+        textSize(100);
+        text("YOU ARE A WINNER", 10, height/2);
+    }
 }
 
 void keyPressed() {

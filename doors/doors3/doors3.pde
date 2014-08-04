@@ -29,7 +29,7 @@ void addDoors()
 {
   doors = new ArrayList<Door>();
   doors.add(new Door(new PVector(width/4, height)));
-  doors.add(new Door(new PVector(width/2, 3*height/4)));
+  doors.add(new Door(new PVector(width/2, height)));
   doors.add(new Door(new PVector(3*width/4, height)));
   doors.get(1).teamA=false;
   
@@ -48,8 +48,10 @@ void draw()
     }
     
     floor.display();
+    
     win();
 }
+
 
 void win()
 {
@@ -102,10 +104,14 @@ void keyPressed() {
       if(d.teamA)
       {
           d.p.y = d.p0.y - statesValuesA[0]*10;
+          floor.control.get(2).y =floor.start.get(2).y + statesValuesA[0]*10;
       }
       else
       {
           d.p.y = d.p0.y - statesValuesB[0]*10;
+          floor.control.get(0).y =floor.start.get(0).y - statesValuesB[0]*10;
+          floor.control.get(3).y =floor.start.get(3).y - statesValuesB[0]*10;
+
       }
   }
 }
