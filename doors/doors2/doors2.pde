@@ -7,6 +7,9 @@ float powerAMax, powerBMax;
 
 void setup()
 {  
+  setupOSC();
+  
+    
   size(1000,500);
   powerA = 0;
   powerB = 0;
@@ -18,6 +21,8 @@ void setup()
   fill(0);
   addDoors();
   floor = new Floor();
+  
+  
 }
 
 void addDoors()
@@ -45,6 +50,12 @@ void draw()
     floor.display();
 }
 
+
+/*
+  Include generic key control here
+  Default to controlling/being controlled by the first channel
+*/
+
 void keyPressed() {
   if (key == 'a') {
     println(powerA + " " + powerAMax);
@@ -52,22 +63,26 @@ void keyPressed() {
       
       powerA++;
     }
+    statesValuesA[0] = powerA;
   } 
   else if (key == 'A') {
     if (powerA > 0) {
       powerA--;
     }
+    statesValuesA[0] = powerA;
   }
   
   if (key == 'b') {
     if (powerB < powerBMax) {
       powerB++;
     }
+    statesValuesB[0] = powerB;
   } 
   else if (key == 'B') {
     if (powerB > 0) {
       powerB--;
     }
+    statesValuesB[0] = powerB;
   }
   
   for(Door d: doors)
@@ -75,13 +90,12 @@ void keyPressed() {
       //println(powerA);
       if(d.teamA)
       {
-          d.p.y = d.p0.y - powerA*10;
+          d.p.y = d.p0.y - statesValuesA[0]*10;
       }
       else
       {
-          d.p.y = d.p0.y - powerB*10;
+          d.p.y = d.p0.y - statesValuesB[0]*10;
       }
   }
 }
-
 
