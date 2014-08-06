@@ -6,7 +6,7 @@ void panel()
    fill(33,154,126, 80);
    translate(0, height-40);
    rect(0, 0, width, 40);
-   if (x<0) win="Red"; else win="Green";
+   if (x<0) win="Team B"; else win="Team A";
    textAlign(CENTER);
    if (x<0) 
    {

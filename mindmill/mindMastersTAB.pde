@@ -146,7 +146,7 @@ void fillArray (Float [] array, OscMessage theOscMessage) {
 
 private void disconnect(String theIPaddress) {
 if (myNetAddressList.contains(theIPaddress, myBroadcastPort)) {
-		myNetAddressList.remove(theIPaddress, myBroadcastPort);
+    myNetAddressList.remove(theIPaddress, myBroadcastPort);
        println("### removing "+theIPaddress+" from the list.");
      } else {
        println("### "+theIPaddress+" is not connected.");
