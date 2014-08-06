@@ -6,14 +6,14 @@ void ending()
   if (agentsred.size()==0) 
   {
    background(gre);
-   text("Green team wins", width/2, height/2);
+   text(TeamA+"wins", width/2, height/2);
    noLoop(); 
   }
   else
   if (agentsgreen.size()==0) 
   {
    background(re);
-   text("Red team wins", width/2, height/2);
+   text(TeamB+"wins", width/2, height/2);
    noLoop(); 
   }
  popStyle();

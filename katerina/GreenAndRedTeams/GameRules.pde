@@ -1,7 +1,7 @@
 void rules()
 {
-   //removing or adding GREEN agents
    
+    //removing or adding GREEN agents 
     for(int i = 0; i<agentsgreen.size(); i++)
     {  
       ppx=int(agentsgreen.get(i).positionx());
@@ -14,7 +14,7 @@ void rules()
         agentsred.add(new AgentsRed()); 
       }
       else if (agentsgreen.get(i).isFinished()==true) agentsgreen.remove(i);
-     // println(agentsgreen.size());
+
     }
   
   
@@ -32,5 +32,5 @@ void rules()
         }
     else if (agentsred.get(i).isFinished()==true) agentsred.remove(i);  
    } 
-  // println(agentsred.size());
+
 }

@@ -1,5 +1,10 @@
 class AgentsRed
 {
+  //Parameters that YOU CAN CHANGE
+  //size of the team's players
+  int rs=20;
+  
+  
   PVector k, v, u;
   float kx, ky;
   
@@ -15,7 +20,7 @@ class AgentsRed
     pushStyle();
      stroke(255);
      fill(re);
-     ellipse(k.x, k.y, 20, 20);
+     ellipse(k.x, k.y, rs, rs);
     popStyle();
     
   }
