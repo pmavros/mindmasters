@@ -1,3 +1,10 @@
+/*
+    Written by Martin Zaltz Austwick with Katerina Skroumpelou and Panos Mavros
+    August 2014
+    Based on OSC libraries.
+*/
+
+
 Walker w;
 ArrayList<Door> doors;
 Floor floor;
