@@ -13,6 +13,8 @@
  * info about using OSCP5: http://www.sojamo.de/oscP5
  */
  
+ 
+ 
 import oscP5.*;
 import netP5.*;
 
@@ -42,7 +44,6 @@ color b = color(0, 150, 255);    // blue for frustration
 color o = color(255, 200, 0);  // orange for engagement
 color g = color(0, 255, 0);    // green for meditation
 color colors [] = {r, b,o, g};
-
 
 
 
@@ -110,8 +111,30 @@ void readEmotiv(String teamName, OscMessage theOscMessage){
   } else if (teamName == "Team B") {
     fillArray(statesValuesB,theOscMessage);
   }
+  winCheck();
   
 }
+  
+  
+//  //NEW BIT
+//  for(Door d: doors)
+//  {
+//      //println(powerA);
+//      if(d.teamA)
+//      {
+//          d.p.y = d.p0.y - statesValuesA[3]*500;
+//          floor.control.get(2).y =floor.start.get(2).y + statesValuesA[3]*500;
+//      }
+//      else
+//      {
+//          d.p.y = d.p0.y - statesValuesB[0]*100;
+//          floor.control.get(0).y =floor.start.get(0).y - statesValuesB[1]*100;
+//          floor.control.get(3).y =floor.start.get(3).y - statesValuesB[1]*100;
+//
+//      }
+//  }
+//  
+//}
 
 void fillArray (Float [] array, OscMessage theOscMessage) {
   // replace this with /EXC
@@ -124,6 +147,8 @@ void fillArray (Float [] array, OscMessage theOscMessage) {
   } else if (theOscMessage.addrPattern().equals("/MED")) {
     array[3] = theOscMessage.get(0).floatValue();
   } 
+  
+  println(array);
 }
 
 
@@ -141,7 +166,7 @@ void fillArray (Float [] array, OscMessage theOscMessage) {
 
 private void disconnect(String theIPaddress) {
 if (myNetAddressList.contains(theIPaddress, myBroadcastPort)) {
-		myNetAddressList.remove(theIPaddress, myBroadcastPort);
+    myNetAddressList.remove(theIPaddress, myBroadcastPort);
        println("### removing "+theIPaddress+" from the list.");
      } else {
        println("### "+theIPaddress+" is not connected.");
@@ -178,5 +203,7 @@ if (myNetAddressList.contains(theIPaddress, myBroadcastPort)) {
   }
   }  
 }
+
+
 
 

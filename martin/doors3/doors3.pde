@@ -28,9 +28,9 @@ void setup()
 void addDoors()
 {
   doors = new ArrayList<Door>();
-  doors.add(new Door(new PVector(width/4, height)));
+  doors.add(new Door(new PVector(width/4, 1.3*height)));
   doors.add(new Door(new PVector(width/2, height)));
-  doors.add(new Door(new PVector(3*width/4, height)));
+  doors.add(new Door(new PVector(3*width/4, 1.3*height)));
   doors.get(1).teamA=false;
   
 }

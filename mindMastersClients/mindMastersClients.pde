@@ -36,6 +36,10 @@ void setup() {
   myBroadcastLocation1 = new NetAddress("192.168.0.25",31000);
   myBroadcastLocation2 = new NetAddress("192.168.0.25",32000);
   
+  myBroadcastLocation1 = new NetAddress("128.40.111.213",31000);
+  myBroadcastLocation2 = new NetAddress("128.40.111.213",32000);
+  
+  
   counter = 0;
   
 // OscMessage m = new OscMessage("/server/connect",new Object[0]);
