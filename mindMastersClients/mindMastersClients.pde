@@ -13,7 +13,7 @@ int counter;
 OscP5 oscP5;
 
 /* a NetAddress contains the ip address and port number of a remote location in the network. */
-NetAddress myBroadcastLocation1,myBroadcastLocation2; 
+NetAddress myBroadcastLocation1, myBroadcastLocation2; 
 
 void setup() {
   size(400,400);
@@ -22,19 +22,20 @@ void setup() {
   /* create a new instance of oscP5. 
    * 12000 is the port number you are listening for incoming osc messages.
    */
-  oscP5 = new OscP5(this,12000);
+  //oscP5 = new OscP5(this,12000);
   //oscP5 = new OscP5(this,7400);
   
    new MyEmotivListener(7400);
-   new MyStatusListener(12000);
+   //new MyStatusListener(12000);
   
   /* create a new NetAddress. a NetAddress is used when sending osc messages
    * with the oscP5.send method.
    */
   
   /* the address of the osc broadcast server */
-  myBroadcastLocation1 = new NetAddress("192.168.0.25",31000);
-  myBroadcastLocation2 = new NetAddress("192.168.0.25",32000);
+  //myBroadcastLocation1 = new NetAddress("128.40.47.103",31000);
+  myBroadcastLocation1 = new NetAddress("169.254.123.80",31000);
+   myBroadcastLocation2 = new NetAddress("169.254.123.80",32000);
   
   myBroadcastLocation1 = new NetAddress("128.40.111.213",31000);
   myBroadcastLocation2 = new NetAddress("128.40.111.213",32000);
@@ -58,7 +59,7 @@ void mousePressed() {
   /* add a value (an integer) to the OscMessage */
   myOscMessage.add(100);
   /* send the OscMessage to a remote location specified in myNetAddress */
-  oscP5.flush(myOscMessage, myBroadcastLocation1);
+  //oscP5.flush(myOscMessage, myBroadcastLocation1);
   oscP5.flush(myOscMessage, myBroadcastLocation2);
 }
 
@@ -69,7 +70,7 @@ void keyPressed() {
     case('c'):
       /* connect to the broadcaster */
       m = new OscMessage("/server/connect",new Object[0]);
-      oscP5.flush(m,myBroadcastLocation1);  
+      //oscP5.flush(m,myBroadcastLocation1);  
       oscP5.flush(m,myBroadcastLocation2);  
 
       break;
@@ -94,7 +95,7 @@ void keyPressed() {
 void sendOsc (String addressPattern, float messageAttribute) {
    OscMessage m = new OscMessage(addressPattern);
    m.add(messageAttribute);
-   oscP5.flush(m,myBroadcastLocation2);
+   oscP5.flush(m, myBroadcastLocation2);
 }
 
 class MyEmotivListener {

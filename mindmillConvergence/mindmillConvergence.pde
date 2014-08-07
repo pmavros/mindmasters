@@ -1,5 +1,7 @@
 /**
- * Windmill 
+ * Mindmill 
+ * 
+ * Panos Mavros urbancortex.org
  * 
  * Press buttons up or down to increase or decrease the speed of the wind. 
  */
