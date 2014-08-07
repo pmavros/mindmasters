@@ -8,6 +8,8 @@
 import oscP5.*;
 import netP5.*;
 
+String IP = "169.254.22.43";
+
 int counter;
 
 OscP5 oscP5;
@@ -34,11 +36,11 @@ void setup() {
   
   /* the address of the osc broadcast server */
   //myBroadcastLocation1 = new NetAddress("128.40.47.103",31000);
-  myBroadcastLocation1 = new NetAddress("169.254.123.80",31000);
-   myBroadcastLocation2 = new NetAddress("169.254.123.80",32000);
-  
-  myBroadcastLocation1 = new NetAddress("128.40.111.213",31000);
-  myBroadcastLocation2 = new NetAddress("128.40.111.213",32000);
+//  myBroadcastLocation1 = new NetAddress("169.254.123.80",31000);
+//   myBroadcastLocation2 = new NetAddress("169.254.123.80",32000);
+//  
+  myBroadcastLocation1 = new NetAddress(IP,31000);
+  myBroadcastLocation2 = new NetAddress(IP,32000);
   
   
   counter = 0;
@@ -110,7 +112,8 @@ class MyEmotivListener {
     counter++;
     sendOsc("/COUNTER",counter);
     
-    //println("received a message from emotiv on port "+port);
+    //println("received a message from emotiv on port "+port+" "+theOscMessage);
+    
     if(false){
     // do nothing
     } else if (theOscMessage.checkAddrPattern("/AFF/Engaged/Bored") == true ) {
@@ -121,6 +124,8 @@ class MyEmotivListener {
        sendOsc("/FRU",theOscMessage.get(0).floatValue());
     } else if (theOscMessage.checkAddrPattern("/AFF/Meditation") == true ) {
        sendOsc("/MED",theOscMessage.get(0).floatValue());
+    } else if (theOscMessage.checkAddrPattern("/EXP/BLINK") == true ) {
+       sendOsc("/BLI",theOscMessage.get(0).floatValue());
     }
 
   }
