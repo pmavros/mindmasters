@@ -1,8 +1,8 @@
-//Parameters that YOU CAN CHANGE
+//Parameters that YOU CAN CHANGEo
 
 //NAMES of the teams
-String TeamA="Team A"
-String TeamB="Team B"
+String TeamA="Team A";
+String TeamB="Team B";
 
 //COLOR of your teams
 //color of Team A
@@ -18,12 +18,12 @@ int initial=10;
 int wsize=500;
 
 /*Which channel to use
-  There are FOUR available:
-  0:excitement
-  1:frustration
-  2:engagement
-  3:meditation
-*/
+ There are FOUR available:
+ 0:excitement
+ 1:frustration
+ 2:engagement
+ 3:meditation
+ */
 int channel=2;
 
 //Declaring the variables
@@ -46,10 +46,10 @@ void setup()
   agentsred = new ArrayList<AgentsRed>();
   x=0;
 
-  
+
   //loading the first set of agents
   //you can determine how many are generated in the beginning 
-  for(int i = 0; i<initial; i++)
+  for (int i = 0; i<initial; i++)
   {
     goalG = new PVector(width-25, random(height));
     goalR = new PVector(25, random(height));
@@ -65,41 +65,37 @@ void draw()
   if (frameCount<100)
   {
     instructions();
-  }
-  else
+  } else
   { 
     //every 20 frames, load one more agent
     //you can change the "one" to as many as you want
     //when it reaches 250 frames, it stops generating more agents
     if ((frameCount<250)&&(frameCount%20==0))
     {
-        for(int i = 0; i<1; i++)
-       {
+      for (int i = 0; i<1; i++)
+      {
         goalG = new PVector(width-25, random(height));
         goalR = new PVector(25, random(height));
         agentsgreen.add(new AgentsGreen());
         agentsred.add(new AgentsRed());
-       }
+      }
     }
     background(224, 224, 224);
     panel();
-  
+
     if (x<0) //because red is drawn last, it is drawn on top (thus, it wins)
     {
       addgreen();
       addred();
-    }
-    else
+    } else
     {
       addred();
       addgreen();
     }
     rules();
   }
-  
+
   ending();
-
-
 }
 
 
@@ -116,12 +112,12 @@ void winCheck()
 //press 0 to restart the game
 void keyPressed()
 {
-   //if (key=='r') x=x+1;
+  //if (key=='r') x=x+1;
   // if (key=='p') x=x-1;
-   if (key=='0') 
-   {
-     setup();
-     loop();
-   }
+  if (key=='0') 
+  {
+    setup();
+    loop();
+  }
 }
 

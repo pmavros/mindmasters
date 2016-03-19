@@ -43,9 +43,6 @@ color o = color(255, 200, 0);  // orange for engagement
 color g = color(0, 255, 0);    // green for meditation
 color colors [] = {r, b,o, g};
 
-
-
-
 void setupOSC() {
   oscP5 = new OscP5(this, myListeningPort);
   
@@ -53,12 +50,6 @@ void setupOSC() {
   new MyTeamListener("Team B", 33000);
 }
 
-
-//void draw() {
-//  background(0);
-//  updateText();  
-//  image(logo_casa, width-50, 25);
-//}
 
 void oscEvent(OscMessage theOscMessage) {
   
@@ -69,40 +60,8 @@ void oscEvent(OscMessage theOscMessage) {
   else if (theOscMessage.addrPattern().equals(myDisconnectPattern)) {
     disconnect(theOscMessage.netAddress().address());
   }
-  /**
-   * if pattern matching was not successful, then broadcast the incoming
-   * message to all addresses in the netAddresList. 
-   */
-  else {
-    
-    //readEmotiv(OscMessage theOscMessage);
-    //oscP5.send(theOscMessage, myNetAddressList);
-  }   
+   
 }
-//
-//void updateText(){
-//  textAlign(LEFT, TOP);
-//  textSize(15);
-//  
-//  fill(255);
-//  if(teamStatusA){
-//    text("team A", 125, 25);
-//  }
-//  if(teamStatusB){
-//    text("team B", 225, 25);
-//  }
-//  for (int i = 0; i<4;i++){     
-//    fill(colors[i]);
-//    text(statesNames[i], 25, 25*(i+2));  
-//    if(teamStatusA){
-//      text(statesValuesA[i], 125, 25*(i+2));
-//    }
-//    if(teamStatusB){
-//      text(statesValuesB[i], 225, 25*(i+2));
-//    }     
-//  }
-//}
-
 
 void readEmotiv(String teamName, OscMessage theOscMessage){
   if (teamName == "Team A"){
@@ -177,7 +136,7 @@ if (myNetAddressList.contains(theIPaddress, myBroadcastPort)) {
   }
   else if (theOscMessage.addrPattern().equals("COUNTER")) {
     println(theOscMessage.get(o).intValue());
-  }{
+  }else{
      readEmotiv(name, theOscMessage);
      
   }

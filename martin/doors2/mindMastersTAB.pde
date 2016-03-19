@@ -172,7 +172,7 @@ if (myNetAddressList.contains(theIPaddress, myBroadcastPort)) {
   }
   else if (theOscMessage.addrPattern().equals("COUNTER")) {
     println(theOscMessage.get(o).intValue());
-  }{
+  }else {
      readEmotiv(name, theOscMessage);
      
   }
